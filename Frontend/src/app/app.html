@@ -1,0 +1,56 @@
+<h1>Poliklinik Randevu Sistemi</h1>
+<div class="form-container">
+  <input type="text" [(ngModel)]="yeniKayit.hastaTC" placeholder="TC Kimlik" maxlength="11" (keypress)="sadeceRakam($event)" style="padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+  <input type="text" [(ngModel)] = "yeniKayit.hastaAdSoyad" placeholder="Ad Soyad">
+  <select [(ngModel)]="yeniKayit.doktorId" style="padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+    <option [ngValue]="undefined" disabled selected>Doktor Seçiniz...</option>
+    
+    @for(d of doktorlar; track d.doktorId) {
+      <option [ngValue]="d.doktorId">{{ d.adSoyad }} ({{ d.brans }})</option>
+    }
+  </select>
+  <input type="datetime-local" [(ngModel)] = "yeniKayit.tarihSaat">
+  <button (click)="kaydet()">Randevu Ekle</button>
+</div>
+<hr>
+<table>
+  <thead>
+    <tr>
+      <th>Kimlik</th>
+      <th>Hasta Ad Soyad</th>
+      <th>Doktor Adı</th>
+      <th>Alanı</th>
+      <th>Tarih</th>
+      <th>Durum</th>
+      <th>İşlem</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (r of randevular; track r.randevuId) {
+      <tr [class.row-basarili]="r.durum === 'Tedavi Yapıldı'">
+        <td>{{ r.hastaTC }}</td>
+        <td>{{ r.hastaAdSoyad }}</td>
+        <td>{{ getDoktor(r.doktorId)?.adSoyad }}</td>
+        <td>{{ getDoktor(r.doktorId)?.brans }}</td>
+        <td>{{ r.tarihSaat | date:'dd.MM.yyyy HH:mm' }}</td>
+        
+        <td>
+          <span class="durum-rozet" 
+                [class.durum-bekliyor]="r.durum === 'Bekliyor'" 
+                [class.durum-iptal]="r.durum === 'İptal'"
+                [class.durum-yapildi]="r.durum === 'Tedavi Yapıldı'">
+            {{ r.durum }}
+          </span>
+        </td>
+        
+        <td>
+          @if (r.durum === 'Bekliyor') {
+            <input type="datetime-local" #yeniTarihInput style="margin-right: 5px;">
+            <button class="btn-warning" (click)="ertele(r.randevuId!, yeniTarihInput.value)" style="margin-right: 5px;">Ertele</button>
+            <button class="btn-danger" (click)="iptalEt(r.randevuId!)">İptal</button>
+          }
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

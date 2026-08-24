@@ -1,0 +1,101 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7f6;
+  padding: 20px;
+}
+
+h1 {
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+}
+
+.form-container {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover { background-color: #2980b9; }
+
+.btn-danger {
+  background-color: #e74c3c;
+}
+.btn-danger:hover { background-color: #c0392b; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+th {
+  background-color: #2c3e50;
+  color: white;
+  padding: 12px;
+  text-align: left;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+tr:hover { background-color: #f9f9f9; }
+
+.btn-warning {
+  background-color: #f39c12;
+}
+.btn-warning:hover {
+  background-color: #d68910;
+}
+.row-basarili {
+  background-color: #d5f5e3 !important;
+}
+
+.durum-rozet {
+  font-weight: bold;       
+  padding: 6px 12px;         
+  border-radius: 6px;         
+  display: inline-block;
+  text-align: center;
+  min-width: 80px;            
+}
+
+.durum-bekliyor {
+  background-color: aqua;
+  color: #000;               
+}
+
+.durum-iptal {
+  background-color: darkred;
+  color: white;               
+}
+
+.durum-yapildi {
+  background-color: #27ae60;
+  color: white;
+  font-weight: 900; 
+  box-shadow: 0 2px 4px rgba(39, 174, 96, 0.4); 
+}
