@@ -1,0 +1,175 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "Poliklinik",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Randevular": {
+      "get": {
+        "tags": [
+          "Randevular"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Randevular"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Randevu"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Randevu"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Randevu"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Randevular/{id}/iptal": {
+      "put": {
+        "tags": [
+          "Randevular"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Randevular/{id}/ertele": {
+      "put": {
+        "tags": [
+          "Randevular"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Randevular/doktorlar": {
+      "get": {
+        "tags": [
+          "Randevular"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Randevu": {
+        "required": [
+          "durum",
+          "hastaAdSoyad",
+          "hastaTC",
+          "tarihSaat"
+        ],
+        "type": "object",
+        "properties": {
+          "randevuId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "hastaTC": {
+            "maxLength": 11,
+            "minLength": 0,
+            "type": "string"
+          },
+          "hastaAdSoyad": {
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          "tarihSaat": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "durum": {
+            "maxLength": 20,
+            "minLength": 1,
+            "type": "string"
+          },
+          "doktorId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Randevular"
+    }
+  ]
+}

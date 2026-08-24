@@ -1,0 +1,75 @@
+[
+  {
+    "ContainingType": "Poliklinik.Controllers.RandevularController",
+    "Method": "GetRandevular",
+    "RelativePath": "api/Randevular",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Poliklinik.Controllers.RandevularController",
+    "Method": "RandevuOlustur",
+    "RelativePath": "api/Randevular",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "yeniRandevu",
+        "Type": "Poliklinik.Models.Randevu",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Poliklinik.Controllers.RandevularController",
+    "Method": "RandevuErtele",
+    "RelativePath": "api/Randevular/{id}/ertele",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "yeniTarih",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Poliklinik.Controllers.RandevularController",
+    "Method": "RandevuIptalveLoglama",
+    "RelativePath": "api/Randevular/{id}/iptal",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Poliklinik.Controllers.RandevularController",
+    "Method": "GetDoktorlar",
+    "RelativePath": "api/Randevular/doktorlar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

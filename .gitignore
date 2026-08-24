@@ -1,9 +1,9 @@
-**/node_modules/
-**/dist/
-.angular/
-
-**/bin/
-**/obj/
-.vs/
+Backend/bin/
+Backend/obj/
 *.user
-*.suo
+*.userosscache
+*.sln.docstates
+
+Frontend/node_modules/
+Frontend/dist/
+Frontend/.angular/
